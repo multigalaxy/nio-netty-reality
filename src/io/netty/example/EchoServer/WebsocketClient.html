@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form onsubmit="return false;">
+    <input type="text" name="msg" value="NETTY">
+    <button onclick="send(this.form.msg.value)">send</button>
+    <br>
+    <textarea id="resText">
+
+    </textarea>
+
+</form>
+</body>
+<script>
+    var socket;
+    if (!window.WebSocket) {
+        window.WebSocket = window.MozWebSocket;
+    }
+    if (window.WebSocket) {
+        socket = new WebSocket("ws://127.0.0.1:20000/websocket");
+        socket.onmessage = function (event) {
+            var ta = document.getElementById("resText");
+            ta.value = "";
+            ta.value = event.data;
+        };
+
+        socket.onopen = function (event) {
+            alert("浏览器支持WebSocket");
+            var ta = document.getElementById("resText");
+            ta.value = "";
+            ta.value = "浏览器支持WebSocket";
+        };
+
+        socket.onclose = function (event) {
+            var ta = document.getElementById("resText");
+            ta.value = "";
+            ta.value = "关闭WebSocket";
+        }
+    } else {
+        alert("浏览器不支持WebSocket");
+    }
+
+    function send(msg) {
+        if (!window.WebSocket) {
+            return;
+
+        }
+        if (socket.readyState == WebSocket.OPEN) {
+            socket.send(msg);
+        } else {
+            alert("建立连接失败")
+        }
+    }
+</script>
+</html>

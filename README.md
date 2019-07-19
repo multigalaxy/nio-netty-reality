@@ -1,7 +1,9 @@
 # nio
 多线程，异步非阻塞代码研究
 
-* io.netty.example 模仿案例
+## 环境依赖：
+* jdk-11.0.2
+* netty-all-4.1.37.Final
 
 ```
 └── src
