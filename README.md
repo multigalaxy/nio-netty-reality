@@ -5,12 +5,6 @@
 
 ```
 └── src
-    ├── com
-    │   └── xh
-    │       └── netty
-    │           └── test11
-    │               ├── WebSocketServer.java
-    │               └── WebSocketServerHandler.java
     └── io
         └── netty
             └── example
