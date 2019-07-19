@@ -3,7 +3,7 @@
 
 * com.xh.netty.test11是网上摘抄案例
 * io.netty.example是模仿案例
-
+```
 └── src
     ├── com
     │   └── xh
@@ -21,4 +21,4 @@
                     ├── EchoOutHandler2.java
                     ├── EchoServer.java
                     └── WebsocketServerHandler.java
-
+```
